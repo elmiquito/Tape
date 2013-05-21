@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7D425D2D1743ECBF00EA7FB0 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D425D2B1743EC9A00EA7FB0 /* MediaPlayer.framework */; };
 		7D9A8A1A1741745600976F06 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D9A8A191741745600976F06 /* UIKit.framework */; };
 		7D9A8A1C1741745600976F06 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D9A8A1B1741745600976F06 /* Foundation.framework */; };
 		7D9A8A1E1741745600976F06 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D9A8A1D1741745600976F06 /* CoreGraphics.framework */; };
@@ -24,8 +25,8 @@
 		7D9A8A431741745600976F06 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D9A8A1B1741745600976F06 /* Foundation.framework */; };
 		7D9A8A4B1741745600976F06 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7D9A8A491741745600976F06 /* InfoPlist.strings */; };
 		7D9A8A4E1741745600976F06 /* TapeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D9A8A4D1741745600976F06 /* TapeTests.m */; };
-		7D9A8A5A1741836100976F06 /* test.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7D9A8A591741836100976F06 /* test.mp3 */; };
 		7D9A8A5D1741840100976F06 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D9A8A5B174183F700976F06 /* AVFoundation.framework */; };
+		7DAB8685174B936B00A049BC /* empty.wav in Resources */ = {isa = PBXBuildFile; fileRef = 7DAB8684174B936B00A049BC /* empty.wav */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,6 +40,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7D425D2B1743EC9A00EA7FB0 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		7D9A8A161741745600976F06 /* Tape.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tape.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7D9A8A191741745600976F06 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		7D9A8A1B1741745600976F06 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -62,8 +64,8 @@
 		7D9A8A4A1741745600976F06 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		7D9A8A4C1741745600976F06 /* TapeTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TapeTests.h; sourceTree = "<group>"; };
 		7D9A8A4D1741745600976F06 /* TapeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TapeTests.m; sourceTree = "<group>"; };
-		7D9A8A591741836100976F06 /* test.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = test.mp3; sourceTree = SOURCE_ROOT; };
 		7D9A8A5B174183F700976F06 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		7DAB8684174B936B00A049BC /* empty.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = empty.wav; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +76,7 @@
 				7D9A8A1A1741745600976F06 /* UIKit.framework in Frameworks */,
 				7D9A8A1C1741745600976F06 /* Foundation.framework in Frameworks */,
 				7D9A8A5D1741840100976F06 /* AVFoundation.framework in Frameworks */,
+				7D425D2D1743ECBF00EA7FB0 /* MediaPlayer.framework in Frameworks */,
 				7D9A8A1E1741745600976F06 /* CoreGraphics.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -114,6 +117,7 @@
 		7D9A8A181741745600976F06 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				7D425D2B1743EC9A00EA7FB0 /* MediaPlayer.framework */,
 				7D9A8A5B174183F700976F06 /* AVFoundation.framework */,
 				7D9A8A191741745600976F06 /* UIKit.framework */,
 				7D9A8A1B1741745600976F06 /* Foundation.framework */,
@@ -182,7 +186,7 @@
 		7D9A8A58174182BF00976F06 /* Audio */ = {
 			isa = PBXGroup;
 			children = (
-				7D9A8A591741836100976F06 /* test.mp3 */,
+				7DAB8684174B936B00A049BC /* empty.wav */,
 			);
 			name = Audio;
 			sourceTree = "<group>";
@@ -264,7 +268,7 @@
 				7D9A8A301741745600976F06 /* Default-568h@2x.png in Resources */,
 				7D9A8A331741745600976F06 /* MainStoryboard_iPhone.storyboard in Resources */,
 				7D9A8A361741745600976F06 /* MainStoryboard_iPad.storyboard in Resources */,
-				7D9A8A5A1741836100976F06 /* test.mp3 in Resources */,
+				7DAB8685174B936B00A049BC /* empty.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -492,6 +496,7 @@
 				7D9A8A531741745600976F06 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		7D9A8A541741745600976F06 /* Build configuration list for PBXNativeTarget "TapeTests" */ = {
 			isa = XCConfigurationList;
@@ -500,6 +505,7 @@
 				7D9A8A561741745600976F06 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

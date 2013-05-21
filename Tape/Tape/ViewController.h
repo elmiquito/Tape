@@ -9,6 +9,6 @@
 #import <AVFoundation/AVFoundation.h>
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController <AVAudioPlayerDelegate>
+@interface ViewController : UIViewController <AVAudioPlayerDelegate, UITableViewDataSource, UITableViewDelegate>
 
 @end

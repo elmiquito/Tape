@@ -8,6 +8,10 @@
 
 #import "ViewController.h"
 
+#import <MediaPlayer/MediaPlayer.h>
+
+#define kSongItemCellIdentifier @"songItemTableViewCell"
+
 @interface ViewController ()
 
 @property (weak, nonatomic) IBOutlet UIButton *playButton;
@@ -18,12 +22,15 @@
 
 @property (strong, nonatomic) NSTimer *progressTimer;
 @property (strong, nonatomic) AVAudioPlayer *audioPlayer;
+@property (strong, nonatomic) NSArray *songArray;
 @property (assign, nonatomic) BOOL isPaused;
 @property (assign, nonatomic) BOOL isStopped;
 
 @end
 
 @implementation ViewController
+
+#pragma mark - Helper methods
 
 + (NSString *)stringWithMinutes:(NSInteger)minutes andSeconds:(NSInteger)seconds
 {
@@ -38,6 +45,8 @@
     return [ViewController stringWithMinutes:minutes andSeconds:seconds];
 }
 
+#pragma mark - Transport control logic
+
 - (void)setPlayButtonTitleWithString:(NSString *)titleString
 {
     [self.playButton setTitle:titleString forState:UIControlStateNormal];
@@ -45,12 +54,10 @@
 
 - (void)zeroPlayState
 {
-    if (self.audioPlayer == nil)
+    if (self.audioPlayer != nil)
     {
-        NSLog(@"error: audioPlayer is nil");
-        assert(0);
+        self.audioPlayer.currentTime = 0.f;
     }
-    self.audioPlayer.currentTime = 0.f;
     self.progressLabel.text = @"00:00";
     self.progressSlider.value = 0.f;
 }
@@ -82,10 +89,16 @@
 }
 
 - (void)play
-{
+{    
+    if (self.audioPlayer.duration == 0)
+    {
+        [self stop];
+        return;
+    }
     [self.audioPlayer play];
     [self startTimer];
     self.isStopped = self.isPaused = NO;
+    [self setPlayButtonTitleWithString:@"Pause"];
 }
 
 - (void)pause
@@ -94,6 +107,7 @@
     [self stopTimer];
     self.isPaused = YES;
     self.isStopped = NO;
+    [self setPlayButtonTitleWithString:@"Play"];
 }
 
 - (void)stop
@@ -104,14 +118,11 @@
     self.isPaused = NO;
 }
 
-- (void)viewDidLoad
+- (void)loadSongWithURL: (NSURL *)url
 {
-    [super viewDidLoad];
-    
     NSError *error = Nil;
-    NSURL *audioURL = [[NSBundle mainBundle] URLForResource:@"test" withExtension:@"mp3"];
 
-    self.audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:audioURL error:&error];
+    self.audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:&error];
     self.progressSlider.maximumValue = self.audioPlayer.duration;
     self.durationLabel.text = [ViewController stringWithTimeInterval:self.audioPlayer.duration];
     [self stop];
@@ -122,6 +133,29 @@
     NSTimeInterval currentTime = self.audioPlayer.currentTime;
     self.progressSlider.value = currentTime;
     self.progressLabel.text = [ViewController stringWithTimeInterval:currentTime];
+    
+    if (currentTime >= self.audioPlayer.duration)
+    {
+        [self stop];
+    }
+}
+
+#pragma mark - View lifecycle
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    
+    // TODO:Do we have a table sidebar, a burger + basement, or a popover list (UIPopoverController)
+    NSURL *audioURL = [[NSBundle mainBundle] URLForResource:@"empty" withExtension:@"wav"];
+
+    MPMediaQuery *songsQuery = [MPMediaQuery songsQuery];
+    [songsQuery addFilterPredicate:[MPMediaPropertyPredicate predicateWithValue:[NSNumber numberWithBool:NO] forProperty:MPMediaItemPropertyIsCloudItem]];
+    
+    songsQuery.groupingType = MPMediaGroupingPlaylist;
+    self.songArray = songsQuery.items;
+    
+    [self loadSongWithURL:audioURL];
 }
 
 - (void)didReceiveMemoryWarning
@@ -130,25 +164,23 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark - UI Handling
+
 - (IBAction)playButtonTouchUpInside:(id)sender
 {
     if (self.isPaused || self.isStopped)
     {
         [self play];
-        [self setPlayButtonTitleWithString:@"Pause"];
-
     }
     else
     {
         [self pause];
-        [self setPlayButtonTitleWithString:@"Play"];
     }
 }
 
 - (IBAction)stopButtonTouchUpInside:(id)sender
 {
     [self stop];
-    [self setPlayButtonTitleWithString:@"Play"];
 }
 
 
@@ -156,6 +188,32 @@
 {
     self.audioPlayer.currentTime = self.progressSlider.value;
     self.progressLabel.text = [ViewController stringWithTimeInterval:self.audioPlayer.currentTime];
+}
+
+#pragma mark - UITableViewDelegate methods
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    MPMediaItem *mediaItem = self.songArray[indexPath.row];
+ 
+    NSURL *url = [mediaItem valueForProperty:MPMediaItemPropertyAssetURL];
+        
+    [self loadSongWithURL:url];
+}
+
+
+#pragma mark - UITableViewDataSource methods
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return self.songArray.count;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kSongItemCellIdentifier];
+    MPMediaItem *mediaItem = self.songArray[indexPath.row];
+    cell.textLabel.text = [mediaItem valueForProperty:MPMediaItemPropertyTitle];
+    
+    return cell;
 }
 
 
