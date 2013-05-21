@@ -148,6 +148,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [[UIDevice currentDevice] beginGeneratingDeviceOrientationNotifications];
+    [[NSNotificationCenter defaultCenter]
+     addObserver:self selector:@selector(orientationChanged:)
+     name:UIDeviceOrientationDidChangeNotification
+     object:[UIDevice currentDevice]];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -175,6 +180,41 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+
+#pragma mark - Orientation Handling
+- (void) orientationChanged:(NSNotification *)note
+{
+    UIDevice * device = note.object;
+    switch(device.orientation)
+    {
+        case UIDeviceOrientationPortrait:
+            self.playButton.hidden = NO;
+            self.stopButton.hidden = NO;
+            self.durationLabel.hidden = NO;
+//            self.progressLabel.hidden = NO;
+            self.progressSlider.hidden = NO;
+            self.songsTableView.hidden = NO;
+            break;
+            
+        case UIDeviceOrientationPortraitUpsideDown:
+            /* start special animation */
+            break;
+            
+        case UIDeviceOrientationLandscapeLeft:
+        case UIDeviceOrientationLandscapeRight:
+            self.playButton.hidden = YES;
+            self.stopButton.hidden = YES;
+            self.durationLabel.hidden = YES;
+//            self.progressLabel.hidden = YES;
+            self.progressSlider.hidden = YES;
+            self.songsTableView.hidden = YES;
+            break;
+            
+        default:
+            break;
+    };
 }
 
 #pragma mark - UI Handling

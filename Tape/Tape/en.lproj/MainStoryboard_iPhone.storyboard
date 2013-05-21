@@ -103,17 +103,17 @@
                             <constraint firstItem="doQ-3u-U5u" firstAttribute="leading" secondItem="PqH-Yh-mgf" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="88v-Un-fLI"/>
                             <constraint firstItem="PqH-Yh-mgf" firstAttribute="top" secondItem="doQ-3u-U5u" secondAttribute="top" type="default" id="ASS-VB-f54"/>
                             <constraint firstItem="tuu-O6-01e" firstAttribute="top" secondItem="dbF-IR-Wgv" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="L7E-ft-qEF"/>
-                            <constraint firstItem="dbF-IR-Wgv" firstAttribute="centerX" secondItem="leR-km-Wru" secondAttribute="centerX" type="default" id="Lvh-KS-6fg"/>
                             <constraint firstItem="leR-km-Wru" firstAttribute="trailing" secondItem="3" secondAttribute="trailing" type="default" id="Md8-yr-BVS"/>
-                            <constraint firstItem="dbF-IR-Wgv" firstAttribute="top" secondItem="leR-km-Wru" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="OHK-vz-ywZ"/>
                             <constraint firstItem="tuu-O6-01e" firstAttribute="leading" secondItem="dbF-IR-Wgv" secondAttribute="leading" type="default" id="RfD-tr-09k"/>
                             <constraint firstItem="tuu-O6-01e" firstAttribute="leading" secondItem="PqH-Yh-mgf" secondAttribute="leading" type="default" id="TyL-c1-3s1"/>
                             <constraint firstAttribute="bottom" secondItem="PqH-Yh-mgf" secondAttribute="bottom" constant="20" symbolic="YES" type="default" id="ZOb-Tp-e3n"/>
+                            <constraint firstAttribute="centerX" secondItem="dbF-IR-Wgv" secondAttribute="centerX" type="user" id="dlC-kS-q20"/>
                             <constraint firstItem="ahs-qN-5dx" firstAttribute="trailing" secondItem="dbF-IR-Wgv" secondAttribute="trailing" type="default" id="drc-lO-R8Z"/>
                             <constraint firstAttribute="bottom" secondItem="doQ-3u-U5u" secondAttribute="bottom" constant="20" symbolic="YES" type="default" id="g42-1f-egM"/>
                             <constraint firstItem="leR-km-Wru" firstAttribute="leading" secondItem="3" secondAttribute="leading" type="default" id="g90-zU-j0t"/>
                             <constraint firstItem="ahs-qN-5dx" firstAttribute="top" secondItem="tuu-O6-01e" secondAttribute="bottom" constant="5" type="user" id="mtc-jc-VzI"/>
                             <constraint firstItem="tuu-O6-01e" firstAttribute="trailing" secondItem="doQ-3u-U5u" secondAttribute="trailing" type="default" id="soN-SS-2Ze"/>
+                            <constraint firstAttribute="centerY" secondItem="dbF-IR-Wgv" secondAttribute="centerY" type="user" id="vua-NM-MTT"/>
                         </constraints>
                     </view>
                     <connections>
