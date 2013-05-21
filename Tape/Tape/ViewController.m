@@ -19,6 +19,9 @@
 @property (weak, nonatomic) IBOutlet UILabel *durationLabel;
 @property (weak, nonatomic) IBOutlet UILabel *progressLabel;
 @property (weak, nonatomic) IBOutlet UISlider *progressSlider;
+@property (weak, nonatomic) IBOutlet UITableView *songsTableView;
+
+
 
 @property (strong, nonatomic) NSTimer *progressTimer;
 @property (strong, nonatomic) AVAudioPlayer *audioPlayer;
@@ -145,17 +148,27 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
     // TODO:Do we have a table sidebar, a burger + basement, or a popover list (UIPopoverController)
     NSURL *audioURL = [[NSBundle mainBundle] URLForResource:@"empty" withExtension:@"wav"];
-
     MPMediaQuery *songsQuery = [MPMediaQuery songsQuery];
     [songsQuery addFilterPredicate:[MPMediaPropertyPredicate predicateWithValue:[NSNumber numberWithBool:NO] forProperty:MPMediaItemPropertyIsCloudItem]];
     
     songsQuery.groupingType = MPMediaGroupingPlaylist;
     self.songArray = songsQuery.items;
     
+//    [self.songsTableView reloadData];
+    
     [self loadSongWithURL:audioURL];
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [self.songsTableView reloadData];
 }
 
 - (void)didReceiveMemoryWarning
