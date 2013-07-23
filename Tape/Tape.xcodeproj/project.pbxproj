@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		7D425D2D1743ECBF00EA7FB0 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D425D2B1743EC9A00EA7FB0 /* MediaPlayer.framework */; };
+		7D4BF0F117844DF7002107BE /* GKLCubeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DF3E001178447D80074BFA4 /* GKLCubeViewController.m */; };
+		7D5C6D5A177DB9F800EF3B13 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D5C6D59177DB9F800EF3B13 /* QuartzCore.framework */; };
 		7D9A8A1A1741745600976F06 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D9A8A191741745600976F06 /* UIKit.framework */; };
 		7D9A8A1C1741745600976F06 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D9A8A1B1741745600976F06 /* Foundation.framework */; };
 		7D9A8A1E1741745600976F06 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D9A8A1D1741745600976F06 /* CoreGraphics.framework */; };
@@ -19,7 +21,7 @@
 		7D9A8A301741745600976F06 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7D9A8A2F1741745600976F06 /* Default-568h@2x.png */; };
 		7D9A8A331741745600976F06 /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7D9A8A311741745600976F06 /* MainStoryboard_iPhone.storyboard */; };
 		7D9A8A361741745600976F06 /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7D9A8A341741745600976F06 /* MainStoryboard_iPad.storyboard */; };
-		7D9A8A391741745600976F06 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D9A8A381741745600976F06 /* ViewController.m */; };
+		7D9A8A391741745600976F06 /* ContainerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D9A8A381741745600976F06 /* ContainerViewController.m */; };
 		7D9A8A411741745600976F06 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D9A8A401741745600976F06 /* SenTestingKit.framework */; };
 		7D9A8A421741745600976F06 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D9A8A191741745600976F06 /* UIKit.framework */; };
 		7D9A8A431741745600976F06 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D9A8A1B1741745600976F06 /* Foundation.framework */; };
@@ -27,6 +29,8 @@
 		7D9A8A4E1741745600976F06 /* TapeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D9A8A4D1741745600976F06 /* TapeTests.m */; };
 		7D9A8A5D1741840100976F06 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D9A8A5B174183F700976F06 /* AVFoundation.framework */; };
 		7DAB8685174B936B00A049BC /* empty.wav in Resources */ = {isa = PBXBuildFile; fileRef = 7DAB8684174B936B00A049BC /* empty.wav */; };
+		7DC2D51D179E9D5B00FCCA31 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DC2D51C179E9D5B00FCCA31 /* MainViewController.m */; };
+		7DC2D520179E9D9C00FCCA31 /* PlayListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DC2D51F179E9D9C00FCCA31 /* PlayListViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,6 +45,7 @@
 
 /* Begin PBXFileReference section */
 		7D425D2B1743EC9A00EA7FB0 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
+		7D5C6D59177DB9F800EF3B13 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		7D9A8A161741745600976F06 /* Tape.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tape.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7D9A8A191741745600976F06 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		7D9A8A1B1741745600976F06 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -56,8 +61,8 @@
 		7D9A8A2F1741745600976F06 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		7D9A8A321741745600976F06 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
 		7D9A8A351741745600976F06 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
-		7D9A8A371741745600976F06 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		7D9A8A381741745600976F06 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		7D9A8A371741745600976F06 /* ContainerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ContainerViewController.h; sourceTree = "<group>"; };
+		7D9A8A381741745600976F06 /* ContainerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ContainerViewController.m; sourceTree = "<group>"; };
 		7D9A8A3F1741745600976F06 /* TapeTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TapeTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7D9A8A401741745600976F06 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		7D9A8A481741745600976F06 /* TapeTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TapeTests-Info.plist"; sourceTree = "<group>"; };
@@ -66,6 +71,12 @@
 		7D9A8A4D1741745600976F06 /* TapeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TapeTests.m; sourceTree = "<group>"; };
 		7D9A8A5B174183F700976F06 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		7DAB8684174B936B00A049BC /* empty.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = empty.wav; sourceTree = "<group>"; };
+		7DC2D51B179E9D5B00FCCA31 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		7DC2D51C179E9D5B00FCCA31 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+		7DC2D51E179E9D9C00FCCA31 /* PlayListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayListViewController.h; sourceTree = "<group>"; };
+		7DC2D51F179E9D9C00FCCA31 /* PlayListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayListViewController.m; sourceTree = "<group>"; };
+		7DF3E000178447D80074BFA4 /* GKLCubeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GKLCubeViewController.h; sourceTree = "<group>"; };
+		7DF3E001178447D80074BFA4 /* GKLCubeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GKLCubeViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +84,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7D5C6D5A177DB9F800EF3B13 /* QuartzCore.framework in Frameworks */,
 				7D9A8A1A1741745600976F06 /* UIKit.framework in Frameworks */,
 				7D9A8A1C1741745600976F06 /* Foundation.framework in Frameworks */,
 				7D9A8A5D1741840100976F06 /* AVFoundation.framework in Frameworks */,
@@ -97,6 +109,7 @@
 		7D9A8A0D1741745600976F06 = {
 			isa = PBXGroup;
 			children = (
+				7DF3DFF5178447C10074BFA4 /* External */,
 				7D9A8A1F1741745600976F06 /* Tape */,
 				7D9A8A57174182B200976F06 /* Resources */,
 				7D9A8A461741745600976F06 /* TapeTests */,
@@ -117,6 +130,7 @@
 		7D9A8A181741745600976F06 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				7D5C6D59177DB9F800EF3B13 /* QuartzCore.framework */,
 				7D425D2B1743EC9A00EA7FB0 /* MediaPlayer.framework */,
 				7D9A8A5B174183F700976F06 /* AVFoundation.framework */,
 				7D9A8A191741745600976F06 /* UIKit.framework */,
@@ -133,9 +147,13 @@
 				7D9A8A281741745600976F06 /* AppDelegate.h */,
 				7D9A8A291741745600976F06 /* AppDelegate.m */,
 				7D9A8A311741745600976F06 /* MainStoryboard_iPhone.storyboard */,
+				7DC2D51E179E9D9C00FCCA31 /* PlayListViewController.h */,
+				7DC2D51F179E9D9C00FCCA31 /* PlayListViewController.m */,
 				7D9A8A341741745600976F06 /* MainStoryboard_iPad.storyboard */,
-				7D9A8A371741745600976F06 /* ViewController.h */,
-				7D9A8A381741745600976F06 /* ViewController.m */,
+				7D9A8A371741745600976F06 /* ContainerViewController.h */,
+				7D9A8A381741745600976F06 /* ContainerViewController.m */,
+				7DC2D51B179E9D5B00FCCA31 /* MainViewController.h */,
+				7DC2D51C179E9D5B00FCCA31 /* MainViewController.m */,
 				7D9A8A201741745600976F06 /* Supporting Files */,
 			);
 			path = Tape;
@@ -189,6 +207,24 @@
 				7DAB8684174B936B00A049BC /* empty.wav */,
 			);
 			name = Audio;
+			sourceTree = "<group>";
+		};
+		7DF3DFF5178447C10074BFA4 /* External */ = {
+			isa = PBXGroup;
+			children = (
+				7DF3DFF6178447D80074BFA4 /* CubeViewController */,
+			);
+			name = External;
+			sourceTree = "<group>";
+		};
+		7DF3DFF6178447D80074BFA4 /* CubeViewController */ = {
+			isa = PBXGroup;
+			children = (
+				7DF3E000178447D80074BFA4 /* GKLCubeViewController.h */,
+				7DF3E001178447D80074BFA4 /* GKLCubeViewController.m */,
+			);
+			name = CubeViewController;
+			path = ../GKLCubeViewController/CubeViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -303,9 +339,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7DC2D520179E9D9C00FCCA31 /* PlayListViewController.m in Sources */,
 				7D9A8A261741745600976F06 /* main.m in Sources */,
 				7D9A8A2A1741745600976F06 /* AppDelegate.m in Sources */,
-				7D9A8A391741745600976F06 /* ViewController.m in Sources */,
+				7D4BF0F117844DF7002107BE /* GKLCubeViewController.m in Sources */,
+				7DC2D51D179E9D5B00FCCA31 /* MainViewController.m in Sources */,
+				7D9A8A391741745600976F06 /* ContainerViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
