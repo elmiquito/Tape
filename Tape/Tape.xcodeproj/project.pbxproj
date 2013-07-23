@@ -31,6 +31,8 @@
 		7DAB8685174B936B00A049BC /* empty.wav in Resources */ = {isa = PBXBuildFile; fileRef = 7DAB8684174B936B00A049BC /* empty.wav */; };
 		7DC2D51D179E9D5B00FCCA31 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DC2D51C179E9D5B00FCCA31 /* MainViewController.m */; };
 		7DC2D520179E9D9C00FCCA31 /* PlayListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DC2D51F179E9D9C00FCCA31 /* PlayListViewController.m */; };
+		7DF3020D179EFF9B0069A023 /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7DF3020C179EFF9B0069A023 /* libTestFlight.a */; };
+		7DF3020F179F003E0069A023 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 7DF3020E179F003E0069A023 /* libz.dylib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +77,9 @@
 		7DC2D51C179E9D5B00FCCA31 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		7DC2D51E179E9D9C00FCCA31 /* PlayListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayListViewController.h; sourceTree = "<group>"; };
 		7DC2D51F179E9D9C00FCCA31 /* PlayListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayListViewController.m; sourceTree = "<group>"; };
+		7DF3020B179EFF8B0069A023 /* TestFlight.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestFlight.h; sourceTree = "<group>"; };
+		7DF3020C179EFF9B0069A023 /* libTestFlight.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libTestFlight.a; sourceTree = "<group>"; };
+		7DF3020E179F003E0069A023 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		7DF3E000178447D80074BFA4 /* GKLCubeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GKLCubeViewController.h; sourceTree = "<group>"; };
 		7DF3E001178447D80074BFA4 /* GKLCubeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GKLCubeViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -84,7 +89,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7DF3020F179F003E0069A023 /* libz.dylib in Frameworks */,
 				7D5C6D5A177DB9F800EF3B13 /* QuartzCore.framework in Frameworks */,
+				7DF3020D179EFF9B0069A023 /* libTestFlight.a in Frameworks */,
 				7D9A8A1A1741745600976F06 /* UIKit.framework in Frameworks */,
 				7D9A8A1C1741745600976F06 /* Foundation.framework in Frameworks */,
 				7D9A8A5D1741840100976F06 /* AVFoundation.framework in Frameworks */,
@@ -130,6 +137,8 @@
 		7D9A8A181741745600976F06 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				7DF3020E179F003E0069A023 /* libz.dylib */,
+				7DF3020C179EFF9B0069A023 /* libTestFlight.a */,
 				7D5C6D59177DB9F800EF3B13 /* QuartzCore.framework */,
 				7D425D2B1743EC9A00EA7FB0 /* MediaPlayer.framework */,
 				7D9A8A5B174183F700976F06 /* AVFoundation.framework */,
@@ -212,6 +221,7 @@
 		7DF3DFF5178447C10074BFA4 /* External */ = {
 			isa = PBXGroup;
 			children = (
+				7DF3020B179EFF8B0069A023 /* TestFlight.h */,
 				7DF3DFF6178447D80074BFA4 /* CubeViewController */,
 			);
 			name = External;
@@ -466,6 +476,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Tape/Tape-Prefix.pch";
 				INFOPLIST_FILE = "Tape/Tape-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -477,6 +491,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Tape/Tape-Prefix.pch";
 				INFOPLIST_FILE = "Tape/Tape-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
