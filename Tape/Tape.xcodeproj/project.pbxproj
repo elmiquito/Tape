@@ -33,6 +33,7 @@
 		7DC2D520179E9D9C00FCCA31 /* PlayListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DC2D51F179E9D9C00FCCA31 /* PlayListViewController.m */; };
 		7DF3020D179EFF9B0069A023 /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7DF3020C179EFF9B0069A023 /* libTestFlight.a */; };
 		7DF3020F179F003E0069A023 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 7DF3020E179F003E0069A023 /* libz.dylib */; };
+		7DF30214179F0DF00069A023 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7DF30213179F0DF00069A023 /* Media.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,6 +81,7 @@
 		7DF3020B179EFF8B0069A023 /* TestFlight.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestFlight.h; sourceTree = "<group>"; };
 		7DF3020C179EFF9B0069A023 /* libTestFlight.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libTestFlight.a; sourceTree = "<group>"; };
 		7DF3020E179F003E0069A023 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		7DF30213179F0DF00069A023 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Media.xcassets; path = Tape/Media.xcassets; sourceTree = "<group>"; };
 		7DF3E000178447D80074BFA4 /* GKLCubeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GKLCubeViewController.h; sourceTree = "<group>"; };
 		7DF3E001178447D80074BFA4 /* GKLCubeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GKLCubeViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -116,6 +118,7 @@
 		7D9A8A0D1741745600976F06 = {
 			isa = PBXGroup;
 			children = (
+				7DF30213179F0DF00069A023 /* Media.xcassets */,
 				7DF3DFF5178447C10074BFA4 /* External */,
 				7D9A8A1F1741745600976F06 /* Tape */,
 				7D9A8A57174182B200976F06 /* Resources */,
@@ -245,6 +248,8 @@
 			buildConfigurationList = 7D9A8A511741745600976F06 /* Build configuration list for PBXNativeTarget "Tape" */;
 			buildPhases = (
 				7D9A8A121741745600976F06 /* Sources */,
+				7DF30210179F05B20069A023 /* ShellScript */,
+				7DF30211179F06C10069A023 /* ShellScript */,
 				7D9A8A131741745600976F06 /* Frameworks */,
 				7D9A8A141741745600976F06 /* Resources */,
 			);
@@ -310,6 +315,7 @@
 			files = (
 				7D9A8A241741745600976F06 /* InfoPlist.strings in Resources */,
 				7D9A8A2C1741745600976F06 /* Default.png in Resources */,
+				7DF30214179F0DF00069A023 /* Media.xcassets in Resources */,
 				7D9A8A2E1741745600976F06 /* Default@2x.png in Resources */,
 				7D9A8A301741745600976F06 /* Default-568h@2x.png in Resources */,
 				7D9A8A331741745600976F06 /* MainStoryboard_iPhone.storyboard in Resources */,
@@ -341,6 +347,32 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+		7DF30210179F05B20069A023 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 8;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+			shellPath = /bin/sh;
+			shellScript = "VERSIONNUM=$(/usr/libexec/PlistBuddy -c \"Print CFBundleShortVersionString\" \"${PROJECT_DIR}/${INFOPLIST_FILE}\")\nNEWSUBVERSION=`echo $VERSIONNUM | awk -F \".\" '{print $3}'`\nNEWSUBVERSION=$(($NEWSUBVERSION + 1))\nNEWVERSIONSTRING=`echo $VERSIONNUM | awk -F \".\" '{print $1 \".\" $2 \".'$NEWSUBVERSION'\" }'`\n/usr/libexec/PlistBuddy -c \"Set :CFBundleShortVersionString $NEWVERSIONSTRING\" \"${PROJECT_DIR}/${INFOPLIST_FILE}\"";
+		};
+		7DF30211179F06C10069A023 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "buildNumber=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" \"${PROJECT_DIR}/${INFOPLIST_FILE}\")\nbuildNumber=$(($buildNumber + 1))\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"${PROJECT_DIR}/${INFOPLIST_FILE}\"";
 		};
 /* End PBXShellScriptBuildPhase section */
 

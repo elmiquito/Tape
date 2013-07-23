@@ -1,0 +1,33 @@
+{
+  "images" : [
+    {
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "2x",
+      "filename" : "Forward-button.png"
+    },
+    {
+      "idiom" : "iphone",
+      "scale" : "1x",
+      "filename" : "Forward-button-1-1-1.png"
+    },
+    {
+      "idiom" : "iphone",
+      "scale" : "2x",
+      "filename" : "Forward-button-1-1.png"
+    },
+    {
+      "idiom" : "iphone",
+      "filename" : "Forward-button-1.png",
+      "subtype" : "retina4",
+      "scale" : "2x"
+    }
+  ],
+  "info" : {
+    "version" : 1,
+    "author" : "xcode"
+  }
+}
